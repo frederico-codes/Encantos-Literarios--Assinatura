@@ -197,15 +197,6 @@ body{
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.card::before{
-  content:"";
-  position:absolute;
-  inset: -10px;
-  border-radius: 18px;
-  border: 1px dashed rgba(248,251,251,.22);
-  pointer-events:none;
-}
-
 .card__head h3{
   font: 700 1.6rem/1.2 "Raleway", system-ui, sans-serif;
   color: var(--text-title, #F8FBFB);
@@ -252,22 +243,41 @@ body{
   color: var(--text-body, #E2E7E9);
 }
 
+
 .card__actions .btn{
-  display:inline-flex; 
-  justify-content:center; 
+  display:inline-flex;
+  justify-content:center;
   align-items:center;
-  padding: 12px 16px; 
+  padding:12px 16px;
   width:100%;
-  border-radius: 12px; 
+  border-radius:12px;
   border:1px solid transparent;
-  font: 700 1.4rem/1 "Raleway", system-ui, sans-serif; 
+  font:700 1.4rem/1 "Raleway", system-ui, sans-serif;
   text-decoration:none;
-  transition: filter .2s ease, transform .1s ease;
+  transition:filter .2s ease, transform .1s ease;
+  color:#fff;
 }
 
-.card__actions .btn--primary{
-  background: linear-gradient(135deg, var(--accent, #358BB9), var(--accent-strong, #144A72));
-  color:#fff;
+
+.pricing__grid .pricing__card:nth-child(1) .card__actions .btn,
+.pricing__grid .pricing__card:nth-child(3) .card__actions .btn{
+  background: linear-gradient(135deg,
+              var(--accent, #358BB9),
+              var(--accent-strong, #144A72));
+  border-color: transparent;         
+}
+
+.pricing__grid .pricing__card:nth-child(2) .card__actions .btn{
+  background: linear-gradient(135deg,
+              var(--brand, #9547A5),
+              var(--brand-strong, #7D298A));
+  border-color: transparent;
+}
+
+.pricing__grid .pricing__card .card__actions .btn:hover,
+.pricing__grid .pricing__card .card__actions .btn:focus{
+  filter: brightness(1.06);
+  transform: translateY(-1px);
 }
 
 .card__actions .btn--outline{
@@ -276,28 +286,10 @@ body{
   border-color: var(--shape-stroke, #002347);
 }
 
-.card__actions .btn:hover{ 
-  filter: brightness(1.05); 
-}
-
-.card__actions .btn:active{ 
-  transform: translateY(1px); 
-}
-
 .card.pricing__card{
   width: 274px;
   height:430px;
   padding: 32px;
-}
-
-.pricing__card:nth-child(2){
-  z-index: 2;
-  border-color: var(--accent, #358BB9);
-  box-shadow: 0 16px 36px rgba(0,0,0,.55), 0 0 0 1px rgba(53,139,185,.2) inset;
-}
-
-.pricing__card:nth-child(2)::before{
-  border-color: rgba(53,139,185,.5);
 }
 
 .pricing__card:nth-child(2) .card__head::after{
@@ -596,9 +588,9 @@ hr {
   }
   
   .kit{
-   position: relative;
-   top: 200px;
-   right: -500px;
+    position: relative;
+    top: 200px;
+    right: -500px;
   }
   
   .container-kit{
@@ -630,8 +622,7 @@ hr {
     position: relative;
     top:1000px;
     right: -500px;
-    color: var(--text-text-title, #F8FBFB);
-    
+    color: var(--text-text-title, #F8FBFB);    
   }
   
   #pricing-title{
@@ -652,25 +643,33 @@ hr {
     top: -500px;
   }
   
+  .pricing__card{
+    transition: transform .25s ease; /* suaviza */
+  }
+
+  .pricing__card:nth-child(1){
+    transform: rotate(-12deg) translateX(-150px) translateY(32px);
+  }
+
+  .pricing__card:nth-child(3){
+    transform: rotate(12deg) translateX(150px) translateY(32px);
+  }
+
+  /* passa o mouse em QUALQUER lugar do grid */
+  .pricing__grid:hover .pricing__card:nth-child(1){
+    transform: rotate(0) translateX(145px) translateY(0);
+  }
+  
+  .pricing__grid:hover .pricing__card:nth-child(3){
+    transform: rotate(0) translateX(-145px) translateY(0);
+  }
+
   .pricing__card:nth-child(2) {
     display: block;
   }
   
   .pricing__card:nth-child(3) {
     display: block;
-  }
-  
-  .pricing__card:nth-child(1){ 
-    transform: rotate(-6deg) 
-    translateY(12px); 
-  }
-  
-  .pricing__card:nth-child(3){ 
-    transform: rotate(6deg) translateY(12px); 
-  }
-  
-  .pricing__card:hover{ 
-    transform: rotate(0deg) translateY(0); 
   } 
   
   #book-small{
@@ -708,5 +707,9 @@ hr {
   .pink-star-xl{
     display: flex;
   } 
+
+  .pricing__card:nth-child(2){ z-index: 3; }        /* frente */
+  .pricing__card:nth-child(1),
+  .pricing__card:nth-child(3){ z-index: 1; } 
 
 }
