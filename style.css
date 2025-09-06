@@ -305,13 +305,13 @@ body{
   padding: 6px 8px;
 }
 
-.pricing__card:nth-child(2)::after{
-  content:"🐰";
-  position:absolute; 
-  top:-18px; 
-  left:50%; 
-  transform:translateX(-50%);
-  font-size: 20px;
+.pricing__card:nth-child(2)::after {
+  content: url("assets/Bunny.svg");
+  position: absolute;
+  top: -55px;          
+  left: 20%;
+  transform: translateX(-50%);
+
 }
 
 .card__head > h3{
@@ -546,8 +546,7 @@ hr {
     height: 1000px;
     padding:56px 180px;   
     background-image:  url("./assets/ImageBackgroundLarge.svg");   
-  }
-  
+  }  
   
   .hero{
     display: flex;
@@ -672,6 +671,10 @@ hr {
     display: block;
   } 
   
+  .pricing__card:nth-child(2){ z-index: 3; }        /* frente */
+  .pricing__card:nth-child(1),
+  .pricing__card:nth-child(3){ z-index: 1; } 
+  
   #book-small{
     display: none;
   }  
@@ -708,8 +711,6 @@ hr {
     display: flex;
   } 
 
-  .pricing__card:nth-child(2){ z-index: 3; }        /* frente */
-  .pricing__card:nth-child(1),
-  .pricing__card:nth-child(3){ z-index: 1; } 
+
 
 }
