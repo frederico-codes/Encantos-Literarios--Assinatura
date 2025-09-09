@@ -50,12 +50,15 @@
 
 body{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
   background-color: #00050A;  
 }
 
 #wrapper{
   width: min( 33.5rem, 100%);
+  
 }
 
 .site-header {
@@ -136,7 +139,9 @@ body{
 .kit{
   display: flex;
   flex-direction: column;  
-  margin-bottom:600px; 
+  margin-bottom:600px;
+  position: relative;
+  top: -80px; 
 }
 
 #kit-title{
@@ -159,12 +164,14 @@ body{
 .site-footer{
   position: relative;
   top: 1100px;
+  
 }
 
 .pricing{  
   display: flex;
   justify-content: center;
   padding: 0px 0;
+  width: 335px;
 }
 
 .pricing h2{
@@ -256,22 +263,6 @@ body{
   text-decoration:none;
   transition:filter .2s ease, transform .1s ease;
   color:#fff;
-}
-
-
-.pricing__grid .pricing__card:nth-child(1) .card__actions .btn,
-.pricing__grid .pricing__card:nth-child(3) .card__actions .btn{
-  background: linear-gradient(135deg,
-              var(--accent, #358BB9),
-              var(--accent-strong, #144A72));
-  border-color: transparent;         
-}
-
-.pricing__grid .pricing__card:nth-child(2) .card__actions .btn{
-  background: linear-gradient(135deg,
-              var(--brand, #9547A5),
-              var(--brand-strong, #7D298A));
-  border-color: transparent;
 }
 
 .pricing__grid .pricing__card .card__actions .btn:hover,
@@ -371,7 +362,7 @@ body{
 
 .site-footer {
   width: min( 33.5rem, 100%);
-  height: 500px;
+  height: 415px;
   padding: 20px;
   position: absolute; 
   z-index: -10;
@@ -474,10 +465,11 @@ hr {
   display: flex;
   flex-direction: column;  
   align-items: center; 
+  width: 335px;
 }
 
 #pricing-title{
-  width: 400px;
+  width: 335x;
   margin-bottom: 46px;
   color: var(--text-text-body, #E2E7E9);
   text-align: center;
@@ -526,10 +518,23 @@ hr {
 #div-section-head{
   display: flex;
   align-items: center;
+  position: relative;
+  right: -50px;
 }
 
-.div-section-head{
+#div-section-head{
   width: 410px;
+}
+
+#small-circles,
+#card-encantos-literarios,
+#card-palace{
+  display: none;
+}
+
+.props{
+  position: relative;
+  right: 200px;
 }
 
 
@@ -589,7 +594,7 @@ hr {
   .kit{
     position: relative;
     top: 200px;
-    right: -500px;
+    right: -200px;
   }
   
   .container-kit{
@@ -599,11 +604,14 @@ hr {
   }
   
   #kit-title{
-    font-size: 32px; 
+    font-size: 32px;
+    position: relative; 
   }
   
   .section-sub{    
-    font-size: 16px;  
+    font-size: 16px; 
+    position: relative;
+    right: -400px; 
   }
   
   .container-site-footer{
@@ -619,8 +627,8 @@ hr {
   
   .pricing{   
     position: relative;
-    top:1000px;
-    right: -500px;
+    top:1500px;
+    right: -550px;
     color: var(--text-text-title, #F8FBFB);    
   }
   
@@ -643,7 +651,7 @@ hr {
   }
   
   .pricing__card{
-    transition: transform .25s ease; /* suaviza */
+    transition: transform .5s ease; /* suaviza */
   }
 
   .pricing__card:nth-child(1){
@@ -653,8 +661,7 @@ hr {
   .pricing__card:nth-child(3){
     transform: rotate(12deg) translateX(150px) translateY(32px);
   }
-
-  /* passa o mouse em QUALQUER lugar do grid */
+ 
   .pricing__grid:hover .pricing__card:nth-child(1){
     transform: rotate(0) translateX(145px) translateY(0);
   }
@@ -671,9 +678,14 @@ hr {
     display: block;
   } 
   
-  .pricing__card:nth-child(2){ z-index: 3; }        /* frente */
+  .pricing__card:nth-child(2){ 
+    z-index: 3; 
+  }     
+
   .pricing__card:nth-child(1),
-  .pricing__card:nth-child(3){ z-index: 1; } 
+  .pricing__card:nth-child(3){ 
+    z-index: 1; 
+  } 
   
   #book-small{
     display: none;
@@ -681,18 +693,17 @@ hr {
   
   #book-xl{
     display: block;
-    position: relative;
-    top: 200px;
-    right: 10px;  
+    position: absolute;
+    top: 300px;
+    right: -40px;  
   }
   
   .site-footer {
-    width: min( 144.0rem, 100%);
-    height: 500px;
+    width: min( 144.0rem, 100%);    
     padding: 20px;
     position: absolute; 
     z-index: -10;
-    top: 3800px;
+    top:4500px;
     background-image:  url("./assets/book-trace-background-lg.svg");
     background-repeat: no-repeat, no-repeat;
     background-position: center top, center top; 
@@ -703,6 +714,119 @@ hr {
     height: 60px;
   }
 
+  #card-palace{
+    position: absolute;
+    z-index: -2;
+    top: 200px;
+    right: -225px;
+  }
+
+  #card-encantos-literarios{
+    position: absolute;
+    z-index:-3;
+    top: 300px;
+    right: -400px;
+  }
+
+  #small-circles{
+    position: absolute;
+    z-index: -2;
+    top: 750px;
+    right: 310px;
+
+  }
+
+   .props{
+    position: relative;
+    width: 920px;
+    height: 520px;
+    margin-top: 24px;
+    perspective: 1100px;
+    transform-style: preserve-3d;
+    right:-100px ;
+  }
+  
+  #book-xl{
+    display: block;
+    position: absolute;
+    top: 300px;
+    right: -40px;
+    transform: translateZ(60px);
+    z-index: 5;
+  }
+
+  #card-palace{
+    position: absolute;
+    top: 200px;
+    right: -225px;
+    z-index: -2;
+    transform: none;                   
+    transform-origin: bottom center;    
+    will-change: transform;
+    transition: transform 1.25s cubic-bezier(.19,1,.22,1);
+    transition-delay: 70ms;
+    backface-visibility: hidden;
+  }
+  
+  #small-circles,
+  #card-encantos-literarios{
+    position: absolute;
+    will-change: transform;   
+    transition-property: transform;
+    transition-duration: 1.15s;
+    transition-timing-function: cubic-bezier(.19,1,.22,1);
+    z-index: 1; 
+    transform: translateZ(0); 
+  }
+  
+  #small-circles{ 
+    transition-delay: 0ms; 
+  }
+
+  #card-palace{   
+    transition-delay: 70ms; 
+  }
+
+  #card-encantos-literarios{ 
+    transition-delay: 140ms; 
+  }
+ 
+  #small-circles{ 
+    top: 750px; 
+    right: 310px; 
+    transform: rotate(-8deg) translateZ(0); 
+  }
+
+  #card-palace{ 
+    top: 200px; 
+    right: -225px; 
+    transform: rotate(0deg) translateZ(0); 
+    transform-origin: bottom center; 
+  }
+
+  #card-encantos-literarios{ 
+    top: 300px; 
+    right: -400px; 
+    transform: rotate(12deg) translateZ(0); 
+    transform-origin: bottom center; 
+  }
+  
+  .props:hover #small-circles{
+    transform: translateX(388px) translateY(-80px) translateZ(-300px) rotate(0deg);
+  }
+
+  .props:hover #card-palace{
+    transform:
+      translateX(0px)
+      translateY(100px)
+      translateZ(-300px)
+      rotate(-22deg);                   
+  }
+
+  .props:hover #card-encantos-literarios{
+    transform: translateX(-320px) translateY(20px) translateZ(-300px) rotate(12deg);
+  }
+
   .pink-star{
     display: none;
   }
@@ -711,6 +835,25 @@ hr {
     display: flex;
   } 
 
+  .props{
+    display: flex;
+  }
 
+  #div-section-head{
+    position: relative;
+    right: -400px;
 
+  }
+
+  #small-circles,
+  #card-encantos-literarios,
+  #card-palace{
+    display: block;
+  }
+
+  @keyframes palace-settle {
+    from { transform: translateX(-185px) translateY(40px) translateZ(-300px) rotate(-22deg); }
+    to   { transform: translateX(-185px) translateY(40px) translateZ(-300px) rotate(-10deg); }
+  }
+  
 }
