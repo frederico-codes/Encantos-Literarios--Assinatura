@@ -9,6 +9,10 @@
 :root{ 
   font-size: 62.5%;
 
+  --pink-dark: #7D298A;
+  --blue-dark: #144A72;
+
+
   /* Pink */
   --pink-light:#C59DD2;
   --pink-base:#9547A5;
@@ -251,7 +255,8 @@ body{
 }
 
 
-.card__actions .btn{
+.card__actions .btn-1,
+.card__actions .btn-3{
   display:inline-flex;
   justify-content:center;
   align-items:center;
@@ -263,18 +268,28 @@ body{
   text-decoration:none;
   transition:filter .2s ease, transform .1s ease;
   color:#fff;
+  background: var(--blue-dark, #144A72);
+}
+
+.card__actions .btn-2{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:12px 16px;
+  width:100%;
+  border-radius:12px;
+  border:1px solid transparent;
+  font:700 1.4rem/1 "Raleway", system-ui, sans-serif;
+  text-decoration:none;
+  transition:filter .2s ease, transform .1s ease;
+  color:#fff;
+  background: var(--pink-dark, #7D298A); 
 }
 
 .pricing__grid .pricing__card .card__actions .btn:hover,
 .pricing__grid .pricing__card .card__actions .btn:focus{
   filter: brightness(1.06);
   transform: translateY(-1px);
-}
-
-.card__actions .btn--outline{
-  background: transparent; 
-  color: var(--text-title, #F8FBFB); 
-  border-color: var(--shape-stroke, #002347);
 }
 
 .card.pricing__card{
@@ -850,6 +865,42 @@ hr {
   #card-palace{
     display: block;
   }
+
+  .pricing__card:nth-child(1)::before {
+    content: url("assets/big-pinkstar-card-price.svg");
+    position: absolute;
+    top: -30px;          
+    left: 0px;
+    transform: translateX(-50%);
+  }
+
+  .pricing__card:nth-child(1)::after {
+    content: url("assets/small-pinkstar-card-price.svg");
+    position: absolute;
+    top: -0px;          
+    left: -15px;
+    transform: translateX(-50%);
+  }
+
+    .pricing__card:nth-child(3)::before {
+    content: url("assets/big-pinkstar-card-price.svg");
+    position: absolute;
+    top: 400px;          
+    left:310px;
+    transform: translateX(-50%);
+  }
+
+  .pricing__card:nth-child(3)::after {
+    content: url("assets/small-pinkstar-card-price.svg");
+    position: absolute;
+    top: 450px;          
+     left:290px;
+    transform: translateX(-50%);
+  }
+
+
+
+
 
   @keyframes palace-settle {
     from { transform: translateX(-185px) translateY(40px) translateZ(-300px) rotate(-22deg); }
