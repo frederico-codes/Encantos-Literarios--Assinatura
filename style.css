@@ -663,11 +663,11 @@ hr {
   }
  
   .pricing__grid:hover .pricing__card:nth-child(1){
-    transform: rotate(0) translateX(145px) translateY(0);
+    transform: rotate(0) translateX(120px) translateY(0);
   }
   
   .pricing__grid:hover .pricing__card:nth-child(3){
-    transform: rotate(0) translateX(-145px) translateY(0);
+    transform: rotate(0) translateX(-120px) translateY(0);
   }
 
   .pricing__card:nth-child(2) {
